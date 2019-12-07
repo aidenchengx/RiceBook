@@ -1,0 +1,132 @@
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-4" style="background-color:#cccccc">
+
+      <div>&nbsp;</div>
+      <span>
+   <button type="button" class="btn btn-success" (click) = nprofile()>My Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button type="button" class="btn btn-success" (click) = logout()>Log out</button>
+  <div>&nbsp;</div>
+</span>
+<br>
+
+
+<div>
+<span>
+  Status:
+  <h3> {{Ustatus}}<br></h3>
+
+  UserName: {{Uname}}<br>
+  Avatar: <img  src={{Upicture}} style="height:110px"><br>
+<div>
+
+  <input type="file" value="New Avatar"><br>
+</div>
+   <input type="text" [(ngModel)]="newstatus" #ftRef="ngModel">{{info9}}<br>
+  <div>&nbsp;</div>
+  <button type="button" class="btn btn-primary btn-sm" (click)=" updatestatus()">Update Status</button><br>
+  <div>&nbsp;</div>
+</span>
+  <div>&nbsp;</div>
+<span>
+
+
+
+
+  <table class="table table-dark">
+<span>
+    Follow a new user:<br>
+    <input type="text" [(ngModel)]="newfollow1" #ftRef="ngModel">{{info8}}<br>
+    <div>&nbsp;</div>
+    <button type="button" class="btn btn-primary btn-sm" (click)=" newfollow()">Follow New User</button><br>
+  </span><br>
+    Followed Users:<div>&nbsp;</div>
+  <tbody style="width:100%"><div *ngFor="let follower of followers.slice().reverse();let i = index;">
+    <tr style="text-align:center;width:400px">
+      <th>
+    User:
+    {{follower.n}}
+      </th>
+    <div>&nbsp;</div>
+
+   Status:
+    {{follower.st}}
+
+    <div>&nbsp;</div>
+    Avatar:<img  src={{follower.p}} style="height:110px"><br>
+
+    <div>&nbsp;</div>
+    <button type="button" class="btn btn-primary btn-sm" (click)=" unfollow(i)">Unfollow</button>
+
+    </tr>
+  </div>
+      </tbody>
+    </table>
+
+
+</span>
+</div>
+    </div>
+    <div class="col-8">
+<div>
+  <div style="background-color:#cccccc;text-align:center" >
+<span>
+
+  <div>&nbsp;</div>
+  Filter posts by content or author:
+  <input type="text" [(ngModel)]="ft" #ftRef="ngModel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <button type="button" class="btn btn-primary btn-sm" (click)=" filter()">filter</button>
+</span>
+  <div>&nbsp;</div>
+  <span>
+  Add a new article Here:<br>
+  <input type="text" [(ngModel)]="newac" #ftRef="ngModel">
+    <div>&nbsp;</div>
+    {{info10}}<br>
+  <div>&nbsp;</div>
+  <button type="button" class="btn btn-primary btn-sm" (click)=" postnew()">Post New Article</button>&nbsp;
+
+  <button type="button" class="btn btn-primary btn-sm" (click)=" clear()">Clear New Article</button><br>
+  <div>&nbsp;</div>
+
+</span>
+  </div>
+  <table class="table table-primary table-borderless">
+    <tbody style="text-align:center">
+    <div *ngFor="let postbd of postbds.slice().reverse();let j = index;">
+
+      <tr scope="row">
+        <th class="po">
+          {{ postbd.tt }} By: {{postbd.a}} At:{{postbd.time}}
+        </th>
+      </tr>
+
+      <tr class="po" style="height:250px;width:200px" *ngIf="postbd.b">
+        {{ postbd.b }}
+
+        <br><img  *ngIf="postbd.img" style="height:200px" src={{postbd.img}}>
+
+      </tr>
+      <tr style="text-align:center">
+      <button type="button" class="btn btn-info btn-sm " style="width:300px" (click)="comment(j)">
+        Comment
+
+      </button>&nbsp;&nbsp;
+
+      <button type="button" class="btn btn-info btn-sm k" style="width:300px" (click)="Edit()">
+        Edit
+      </button>
+        <div style="white-space:pre">{{ postbd.c }}&nbsp;</div>
+        <div *ngFor="let comment of comments.slice().reverse();let h = index;"></div>
+      </tr>
+    </div>
+    </tbody>
+
+  </table>
+</div>
+</div>
+  </div>
+</div>
+</body>

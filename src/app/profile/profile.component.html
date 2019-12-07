@@ -1,0 +1,84 @@
+<button type="button" class="btn btn-primary" (click) = mainpage()>To Main Page</button>
+<table class="table table-dark table-borderless" style="width:50%">
+  <tbody>
+  <tr>
+  <th>
+  Avatar:<img  src="../../assets/i12.jpg" style="height:110px"><br>
+
+  </th>
+  </tr>
+  <tr>
+    <input type="file"  >
+  </tr>
+  <div>
+    <div>Your current file is displayed as below.</div>
+    <div>If you want to make changes,</div>
+    <div>please type it in the textbox and then click update.</div></div>
+  <tr>
+    <th scope="row-8" style="width:700px;">
+      Account Name:{{acname0}}
+    </th>
+    <td>{{info1}}</td>
+  </tr>
+  <tr>
+    <th >
+      <input style="width:300px;" name="acname" type="text" [(ngModel)]="acname" #acnameRef="ngModel" pattern='[A-Za-z][0-9A-Za-z]*'  ></th>
+    <td style="width:100%;text-align:center;">
+      <span *ngIf="acnameRef.errors?.pattern">Account Name should start with a character and followed by digits or characters.</span></td>
+  </tr>
+  <tr>
+  </tr>
+
+
+  <tr>
+    <th scope="row">
+      Email:{{email0}}
+    </th>
+    <td>{{info2}}</td>
+
+  </tr>
+  <tr>
+    <td><input style="width:300px;" name="email" type="text" [(ngModel)]="email" #emailRef="ngModel" pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$' ></td>
+    <td style="text-align:center;">
+      <span *ngIf="emailRef.errors?.pattern">Email's format should be like a@c.d'</span></td>
+
+  </tr>
+
+  <tr>
+    <th scope="row">
+      Phone Number:{{phone0}}
+    </th>
+    <td>{{info3}}</td>
+  </tr>
+  <tr>
+    <td><input style="width:300px;" name="phone" type="text" [(ngModel)]="phone" #phoneRef="ngModel" #phoneRef="ngModel" pattern="\d{3}-\d{3}-\d{4}" ></td>
+    <td style="text-align:center;">
+      <span *ngIf="phoneRef.errors?.pattern">Phone Number's format should be like 123-456-7890'</span></td>
+  </tr>
+  <tr>
+    <th scope="row">
+      Zip Code:{{zip0}}
+    </th>
+    <td>{{info4}}</td>
+  </tr>
+  <tr>
+    <td><input style="width:300px;" name="zip" type="text" [(ngModel)]="zip" #zipRef="ngModel" pattern="[0-9]{5}$" ></td>
+    <td style="text-align:center;">
+      <span *ngIf="zipRef.errors?.pattern">Zip Code's format should be like 77005'</span></td>
+  </tr>
+  <tr>
+    <th scope="row">
+      Password:{{pwd0}}
+    </th>
+    <td>{{info5}}</td>
+  </tr>
+  <tr>
+    <td><input style="width:300px;" name="pwd" type="text" [(ngModel)]="pwd" #pwdRef="ngModel"></td>
+    <td style="text-align:center;">
+
+    </td>
+  </tr>
+  <button type="button" class="btn btn-primary btn-sm" (click)=" update()">Update</button>
+
+  </tbody>
+</table>

@@ -1,0 +1,249 @@
+<div class="container" >
+  <div class="row">
+  <div class="col-8" >
+  <table class="table table-dark table-borderless">
+    <tbody>
+    <thead >
+  <span></span>
+    </thead>
+    <tr>
+      <th scope="row" style="text-align:center">
+        New User? Here to register!
+      </th>
+
+    </tr>
+    <tr>
+      <th scope="row">
+        Account Name:
+      </th>
+      <td></td>
+    </tr>
+    <tr>
+      <th><input name="r_acname" type="text" [(ngModel)]="r_acname" #r_acnameRef="ngModel" pattern='[A-Za-z][0-9A-Za-z]*'  required></th>
+      <td style="width:100%;text-align:center;"><span *ngIf="r_acnameRef.errors?.required">Account Name is required</span>
+      <span *ngIf="r_acnameRef.errors?.pattern">Account Name should start with a character and followed by digits or characters.</span>
+      <span>{{info5}}</span></td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+      <th scope="row"  >
+        Display Name:
+      </th>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td><input name="r_dname" type="text" [(ngModel)]="r_dname" #r_dnameRef="ngModel"></td>
+      <td></td>
+
+    </tr>
+    <tr>
+      <th scope="row">
+        Email:
+      </th>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td><input name="email" type="text" [(ngModel)]="email" #emailRef="ngModel" pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$' required></td>
+      <td style="text-align:center;"><span *ngIf="emailRef.errors?.required">Email is required</span>
+      <span *ngIf="emailRef.errors?.pattern">Email's format should be like a@c.d'</span></td>
+
+    </tr>
+    <tr>
+      <th scope="row">
+        Date of Birth:
+      </th>
+      <td></td>
+    </tr>
+    <tr>
+      <td><input name="dob" type="text" [(ngModel)]="dob" #dobRef="ngModel" #dobRef="ngModel" (input)=clear(1) pattern='[0-9]{2}-[0-9]{2}-[0-9]{4}$' required></td>
+      <td style="text-align:center;"><span *ngIf="dobRef.errors?.required">Date of Birth is required</span>
+      <span *ngIf="dobRef.errors?.pattern">Date of Birth's format should be like MM-DD-YYYY'</span>
+      <span>{{info1}}</span>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        Phone Number:
+      </th>
+      <td></td>
+    </tr>
+    <tr>
+      <td><input name="phone" type="text" [(ngModel)]="phone" #phoneRef="ngModel" #phoneRef="ngModel" pattern="\d{3}-\d{3}-\d{4}" required></td>
+      <td style="text-align:center;"><span *ngIf="phoneRef.errors?.required">Phone Number is required</span>
+      <span *ngIf="phoneRef.errors?.pattern">Phone Number's format should be like 123-456-7890'</span></td>
+    </tr>
+    <tr>
+      <th scope="row">
+        Zip Code:
+      </th>
+      <td></td>
+    </tr>
+    <tr>
+      <td><input name="zip" type="text" [(ngModel)]="zip" #zipRef="ngModel" pattern="[0-9]{5}$" required></td>
+      <td style="text-align:center;"><span *ngIf="zipRef.errors?.required">Zip Code is required</span>
+        <span *ngIf="zipRef.errors?.pattern">Zip Code's format should be like 77005'</span></td>
+    </tr>
+    <tr>
+      <th scope="row">
+        Password:
+      </th>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td><input name="r_pwd" type="password" [(ngModel)]="r_pwd" #r_pwdRef="ngModel" (input)=clear(2) required></td>
+      <td style="text-align:center;"><span *ngIf="r_pwdRef.errors?.required">Password is required</span>
+
+    </tr>
+    <tr>
+      <th scope="row">
+        Password Confirmation:
+      </th>
+      <td></td>
+    </tr>
+    <tr>
+      <td><input name="r_pwdc" type="password" [(ngModel)]="r_pwdc" #r_pwdcRef="ngModel" (input)=clear(2) required></td>
+      <td style="text-align:center;"><span *ngIf="r_pwdcRef.errors?.required">Password Confirmation is required</span>
+        <span>{{info2}}</span></td>
+    </tr>
+    <tr>
+
+      <button type="button" class="btn btn-primary" (click)= register()>register</button>{{info6}}
+    </tr>
+    </tbody>
+
+
+
+
+  </table>
+  </div>
+    <div class="col-4">
+        <table class="table table-primary table-borderless" style="text-align:center">
+          <tbody>
+          <tr>
+            <th scope="row" style="width:80%">
+              Already a user?
+            </th>
+            <td style="width:10%"></td>
+          </tr>
+          <tr>
+            <td scope="row" >
+             &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              Account Name:
+            </th>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <th><input  type="text" name="acname" [(ngModel)]="acname" #acnameRef="ngModel"></th>
+            <td></td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;{{info3}}
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              Password:
+            </th>
+            <td></td>
+
+          </tr>
+          <tr>
+            <td><input  type="password" name="pwd" [(ngModel)]="pwd" #pwdRef="ngModel"></td>
+            <td></td>
+
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;{{info4}}
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <button type="button" class="btn btn-primary" (click) = login()>log in</button>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" >
+              &nbsp;
+            </td>
+            <td>
+            </td>
+          </tr>
+
+        </table>
+
+  </div>
+
+</div>
+
+
+</div>
